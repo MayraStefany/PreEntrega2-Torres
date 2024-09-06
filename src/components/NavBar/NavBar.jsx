@@ -26,7 +26,7 @@ const NavBar = () => {
       <>
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-        <Box display="flex" alighItems="center">
+        <Box display="flex" alignItems="center">
           <GiPopcorn size={24} style={{ marginRight: '8px' }} /> 
           <Text>Popcorn & Pics</Text>
         </Box>
