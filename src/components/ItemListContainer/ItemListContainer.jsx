@@ -1,4 +1,85 @@
-import { Box, Text, keyframes, Icon, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  Stack,
+  Heading,
+  CardBody,
+  Divider,
+  CardFooter,
+  ButtonGroup,
+  Button,
+  Image,
+  Text
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { GiPopcorn } from "react-icons/gi";
+
+export const ItemListContainer = ({ products }) => {
+  return (
+    <Box
+      display="flex"
+      flexWrap="wrap"
+      justifyContent="center"
+      bg="gray.900"
+      p={6}
+      minHeight="100vh"
+    >
+      {products.map((product) => (
+        <Card
+          key={product.id}
+          maxW="sm"
+          margin="1rem"
+          bg="gray.800"
+          color="white"
+          boxShadow="md"
+          borderRadius="lg"
+          overflow="hidden"
+          transition="transform 0.2s"
+          _hover={{ transform: "scale(1.02)", boxShadow: "lg" }}
+        >
+          <CardBody>
+            <Image
+              src={product.thumbnail}
+              alt={product.name}
+              borderRadius="md"
+              objectFit="cover"
+              height="200px"
+              width="100%"
+            />
+            <Stack mt="4" spacing="3">
+              <Heading size="md" fontWeight="bold">{product.title}</Heading>
+              <Text fontSize="sm" color="gray.300">{product.description}</Text>
+              <Text color="red.300" fontSize="lg" fontWeight="bold">
+                ${product.price}
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider borderColor="gray.600" />
+          <CardFooter display="flex" justifyContent="space-between" alignItems="center">
+            <ButtonGroup spacing="2">
+              <Button size="sm" variant="solid" colorScheme="red">
+                Comprar
+              </Button>
+              <Link to={`/item/${product.id}`}>
+                <Button size="sm" variant="outline" colorScheme="red">
+                  Ver Detalle
+                </Button>
+              </Link>
+            </ButtonGroup>
+            <Box display="flex" alignItems="center">
+              <GiPopcorn size="20px" color="red.300" />
+            </Box>
+          </CardFooter>
+        </Card>
+      ))}
+    </Box>
+  );
+};
+
+
+
+/* ESTO ES LA BIENBENIDA A MI PROYECTO*/
+/*import { Box, Text, keyframes, Icon, Stack } from "@chakra-ui/react";
 import { GiPopcorn } from "react-icons/gi";
 import { MdOutlineFastfood } from "react-icons/md";
 import { FaBeer } from "react-icons/fa";
@@ -9,7 +90,7 @@ const gradientAnimation = keyframes`
   100% { background-position: 0% 50%; }
 `;
 
-const ItemListContainer = ({ greeting }) => {
+export const ItemListContainer = ({ greeting }) => {
     return (
         <Box
             display="flex"
@@ -43,6 +124,6 @@ const ItemListContainer = ({ greeting }) => {
             </Text>
         </Box>
     );
-};
+}; 
 
-export default ItemListContainer;
+*/
