@@ -20,7 +20,7 @@ export const ItemListContainer = ({ products }) => {
       display="flex"
       flexWrap="wrap"
       justifyContent="center"
-      bg="gray.900"
+
       p={6}
       minHeight="100vh"
     >
@@ -29,7 +29,8 @@ export const ItemListContainer = ({ products }) => {
           key={product.id}
           maxW="sm"
           margin="1rem"
-          bg="gray.800"
+          maxH="lg"
+
           color="white"
           boxShadow="md"
           borderRadius="lg"
@@ -43,18 +44,18 @@ export const ItemListContainer = ({ products }) => {
               alt={product.name}
               borderRadius="md"
               objectFit="cover"
-              height="200px"
+              height="205px"    //FIX - Tamaño imagen (altura)
               width="100%"
             />
             <Stack mt="4" spacing="3">
-              <Heading size="md" fontWeight="bold">{product.title}</Heading>
+              <Heading size="md" fontWeight="bold" color="#998189">{product.title}</Heading>
               <Text fontSize="sm" color="gray.300">{product.description}</Text>
               <Text color="red.300" fontSize="lg" fontWeight="bold">
                 ${product.price}
               </Text>
             </Stack>
           </CardBody>
-          <Divider borderColor="gray.600" />
+          <Divider borderColor="#4a55686e" />
           <CardFooter display="flex" justifyContent="space-between" alignItems="center">
             <ButtonGroup spacing="2">
               <Button size="sm" variant="solid" colorScheme="red">
@@ -67,7 +68,7 @@ export const ItemListContainer = ({ products }) => {
               </Link>
             </ButtonGroup>
             <Box display="flex" alignItems="center">
-              <GiPopcorn size="20px" color="red.300" />
+              <GiPopcorn size="20px" color="#998189" />
             </Box>
           </CardFooter>
         </Card>
